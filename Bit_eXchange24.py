@@ -12,6 +12,8 @@ import json
 from emoji import emojize
 import schedule
 
+exporterslist.pop(0) if exporterslist else False
+
 dump = 1
 logger = telebot.logger
 
