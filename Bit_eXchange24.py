@@ -15,6 +15,10 @@ import schedule
 dump = 1
 logger = telebot.logger
 
+try:
+    importer = exporterslist.pop(0)
+except IndexError as e:
+    print(e)
 
 if dump:
 	telebot.logger.setLevel(logging.DEBUG)
