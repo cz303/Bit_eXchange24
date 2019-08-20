@@ -12,9 +12,6 @@ import json
 from emoji import emojize
 import schedule
 
-while len(more_stuff) > 0:
-    ...
-
 dump = 1
 logger = telebot.logger
 
