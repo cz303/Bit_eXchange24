@@ -180,7 +180,7 @@ def exmo_pay(message):
 	if message.text == "Отмена":
 		second_menu(message)
 	else:
-		bot.send_message(message.chat.id, " \U00002757ВНИМАНИЕ\U00002757 После успешного перевода денег по указанным реквизитам нажмите на кнопку "Я оплатил", чтобы получить EXMO-код")
+		bot.send_message(message.chat.id, "\U00002757 ВНИМАНИЕ \U00002757 После успешного перевода денег по указанным реквизитам нажмите на кнопку "Я оплатил", чтобы получить EXMO-код")
 		markup = types.InlineKeyboardMarkup()
 		i_pay = types.InlineKeyboardButton('Я оплатил!', callback_data='i_pay_btn')
 		cancel = types.InlineKeyboardButton('Отменить', callback_data='cancel_btn')
@@ -196,7 +196,7 @@ def exmo_pay(message):
 def bitcoin_kosh(message):
 	if message.text == message.text:
 		if re.match('[13][a-km-zA-HJ-NP-Z1-9]{25,34}$', message.text):
-			bot.send_message(message.chat.id, " \U00002757ВНИМАНИЕ\U00002757 После успешного перевода денег по указанным реквизитам нажмите на кнопку "Я оплатил", чтобы получить BTC на ваш адрес")
+			bot.send_message(message.chat.id, "\U00002757 ВНИМАНИЕ \U00002757 После успешного перевода денег по указанным реквизитам нажмите на кнопку "Я оплатил", чтобы получить BTC на ваш адрес")
 			markup = types.InlineKeyboardMarkup()
 			i_pay = types.InlineKeyboardButton('Я оплатил!', callback_data='i_pay_btn')
 			cancel = types.InlineKeyboardButton('Отменить', callback_data='cancel_btn')
