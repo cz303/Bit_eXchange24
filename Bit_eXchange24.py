@@ -84,7 +84,7 @@ def next(message):
 		bot.send_message(message.chat.id,"Этот раздел в разработке. Скоро будет.")
 		second_menu(message)
 	elif message.text == '\U0001F4F2 Контакты':
-		bot.send_message(message.chat.id,"\U0001F4F2 Контакты: \n\n\U00002709 On-line поддержка - @Bit_ex24sup \n\n\n\n\n\n\U0001F441 Новостной канал - t.me/Bit_eX24")
+		bot.send_message(message.chat.id,"\U0001F4F2 Контакты: \n\n\U00002709 On-line поддержка - @Bit_ex24sup \n\n\U0001F441 Новостной канал - t.me/Bit_eX24 \n\n\n\n")
 		second_menu(message)
 	elif message.text == '\U0001F516 Активировать промокод':
 		msg = bot.send_message(message.chat.id, "Введите промокод:")
@@ -100,13 +100,13 @@ def buy(message):
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
 		markup.row('\U0001F519 Назад')
-		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F310BitCoin BTC \n\nНапишите сумму: от 0.0005 до 0.5 BTC", reply_markup=markup)
+		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F310 BitCoin BTC \n\nНапишите сумму: от 0.0005 до 0.5 BTC", reply_markup=markup)
 		bot.register_next_step_handler(msg, buy_btc)
 	elif message.text == '\U0001F511 Купить Exmo':
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
 		markup.row('\U0001F519 Назад')
-		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F511EXMO-code RUB \n\nНапишите сумму: от 500 до 60000 руб.", reply_markup=markup)
+		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F511 EXMO-code RUB \n\nНапишите сумму: от 500 до 60000 руб.", reply_markup=markup)
 		bot.register_next_step_handler(msg, buy_exmo)
 	else:
 		second_menu(message)
@@ -133,11 +133,11 @@ def buy_btc(message):
 		summ = float(message.text)
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
-		markup.row('Согласен','Отмена')
+		markup.row('\U0000267B Согласен','Отмена')
 		global total_price
 		total_price = float((btc_price * summ)+((btc_price *summ)/8))
 		print(total_price)
-		msg = bot.send_message(message.chat.id, "Для получения Bitcoin в размере "+str(summ)+" BTC.\n\nВам необходимо оплатить на Qiwi кошелек "+str(round(total_price))+" руб."+"\n\nНажмите СОГЛАСЕН для получения реквизитов", reply_markup=markup)
+		msg = bot.send_message(message.chat.id, "Для получения BitСoin в размере "+str(summ)+" BTC:\n\nВам необходимо оплатить на QiWi кошелек "+str(round(total_price))+" руб."+"\n\nВы согласны провести обмен?", reply_markup=markup)
 		bot.register_next_step_handler(msg, ok_button)
 	
 def buy_exmo(message):
@@ -159,7 +159,7 @@ def buy_exmo(message):
 		summ = float(message.text)
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
-		markup.row('Согласен','Отмена')
+		markup.row('\U0000267B Согласен','Отмена')
 		global total_price
 		total_price = float((summ + (summ/8)))
 		msg = bot.send_message(message.chat.id, "Для получения Exmo в размере "+str(summ)+" руб.\n\nВам необходимо оплатить на Qiwi кошелек "+str(round(total_price))+ " руб.\n\nНажмите СОГЛАСЕН для получения реквизитов", reply_markup=markup)
@@ -167,7 +167,7 @@ def buy_exmo(message):
 	
 	
 def ok_button(message):
-	if message.text == 'Согласен':
+	if message.text == '\U0000267B Согласен':
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
 		markup.row('\U0001F519 Назад')
