@@ -47,7 +47,7 @@ def welcome_message(message):
 	print("Курс Bitcoin: ", round(btc_price), " рублей")
 	markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 	markup.one_time_keyboard =False
-	markup.row('Обменять \U0001F4B8')
+	markup.row('Обменять \U0001F4B8', 'Инструкция')
 	markup.row('Реф.программа \U0001F5E3', 'Контакты \U0000260E')
 	markup.row('Активировать промокод')
 	msg = bot.send_message(message.chat.id, "Добро пожаловать в наш обменник!",reply_markup=markup)
@@ -62,7 +62,7 @@ def second_menu(message):
 	print(btc_price)
 	markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 	markup.one_time_keyboard =False
-	markup.row('Обменять \U0001F4B8')
+	markup.row('Обменять \U0001F4B8', 'Инструкция')
 	markup.row('Реф.программа \U0001F5E3', 'Контакты \U0000260E')
 	markup.row('Активировать промокод')
 	msg = bot.send_message(message.chat.id, "Продолжить работу",reply_markup=markup)
@@ -77,6 +77,9 @@ def next(message):
 		markup.row('\U0001F519 Назад')
 		msg = bot.send_message(message.chat.id, " \U0001F4F2 Выберите, что хотите купить:", reply_markup=markup)
 		bot.register_next_step_handler(msg, buy)
+	elif message.text == 'Инструкция':
+		bot.send_message(message.chat.id, "Инструкция покупки BitCoin в боте-обменнике @Bit_eX24bot:\n• в меню 'обменять' выбираете 'Bitcoin BTC'\n• бот попросит вас ввести сумму BTC - отправьте боту кол-во биткоинов, которое вам необходимо приобрести в числовом формате (Пример: 0.014) в диапазоне от 0.0005 до 0.5 BTC\n• бот уточнит у вас сумму BTC в пересчёте на рубли, если вас всё устраивает - выбираете 'Согласен'\n• бот запросит у вас адрес криптокошелька, отправьте адрес кошелька на который будет совершен перевод BTC \n(Пример: 3DiVcX9hLHhVxwz2FCuvptvSTS2GvQDz1K)\n• после получения адреса кошелька бот создаст для вас заявку на обмен, действительную 50мин., выдаст реквизиты для перевода денежных средств. Вам необходимо перевести указанную ботом сумму на указанный ботом Qiwi кошелёк с обязательным комментарием, который так же выдаёт вам бот ⚠️\n• после успешного зачисления денежных средств нажмите кнопку 'Я оплатил!'\n• если платеж прошел успешно бот отправит необходимое кол-во BTC на указанный ранее кошелёк а вам выдаст чек-ссылку транзакции")
+		second_menu(message)
 	elif message.text == 'Реф.программа \U0001F5E3':
 		bot.send_message(message.chat.id,"Этот раздел в разработке. Скоро будет.")
 		second_menu(message)
