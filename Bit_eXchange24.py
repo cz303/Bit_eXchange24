@@ -73,7 +73,7 @@ def next(message):
 	if message.text == '\U0000267B Обменять':
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
-		markup.row('Exmo руб. \U0001F4B0', 'Bitcoin BTC \U0001F4B0')
+		markup.row('\U0001F310 Купить BTC', '\U0001F511 Купить Exmo')
 		markup.row('\U0001F519 Назад')
 		msg = bot.send_message(message.chat.id, " \U0001F4F2 Выберите, что хотите купить:", reply_markup=markup)
 		bot.register_next_step_handler(msg, buy)
