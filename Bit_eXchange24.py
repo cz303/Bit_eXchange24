@@ -121,7 +121,11 @@ def buy_btc(message):
 		bot.register_next_step_handler(msg, buy_btc)
 		return
 	elif float(message.text) >= 0.51:
-		msg = bot.send_message(message.chat.id, "Максимальное значение 0.5 BTC!")
+		msg = bot.send_message(message.chat.id, "Максимальная сумма обмена: 0.5 BTC")
+		bot.register_next_step_handler(msg, buy_btc)
+		return
+	elif float(message.text) < 0.0005:
+		msg = bot.send_message(message.chat.id, "Минимальная сумма обмена: 0.0005 BTC")
 		bot.register_next_step_handler(msg, buy_btc)
 		return
 	else:
@@ -144,11 +148,11 @@ def buy_exmo(message):
 		bot.register_next_step_handler(msg, buy_exmo)
 		return
 	elif float(message.text) < 499:
-		msg = bot.send_message(message.chat.id, "Сумма обмена не может быть меньше 500 руб!")
+		msg = bot.send_message(message.chat.id, "Минимальная сумма обмена: 500 руб.")
 		bot.register_next_step_handler(msg, buy_exmo)
 		return
 	elif float(message.text) > 60000:
-		msg = bot.send_message(message.chat.id, "Максимальное значение - 60000 руб.\nВведите сумму Exmo руб.!")
+		msg = bot.send_message(message.chat.id, "Максимальная сумма обмена: 60000 руб.")
 		bot.register_next_step_handler(msg, buy_exmo)
 	else:
 		global summ 
