@@ -84,7 +84,7 @@ def next(message):
 		bot.send_message(message.chat.id,"Этот раздел в разработке. Скоро будет.")
 		second_menu(message)
 	elif message.text == '\U0001F4F2 Контакты':
-		bot.send_message(message.chat.id,"\U0001F4F2 Контакты: \n\n\U00002709 On-line поддержка - @Bit_ex24sup \n\U0001F441 Новостной канал - t.me/Bit_eX24")
+		bot.send_message(message.chat.id,"\U0001F4F2 Контакты: \n\n\U00002709 On-line поддержка - @Bit_ex24sup \n\n\n\n\n\n\U0001F441 Новостной канал - t.me/Bit_eX24")
 		second_menu(message)
 	elif message.text == '\U0001F516 Активировать промокод':
 		msg = bot.send_message(message.chat.id, "Введите промокод:")
@@ -96,17 +96,17 @@ def promo(message):
 
 
 def buy(message):
-	if message.text == 'Bitcoin BTC \U0001F4B0':
+	if message.text == '\U0001F310 Купить BTC':
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
 		markup.row('\U0001F519 Назад')
-		msg = bot.send_message(message.chat.id, "Введите сумму Bitcoin BTC", reply_markup=markup)
+		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F310BitCoin BTC n\n\Напишите сумму: от 0.0005 до 0.5 BTC", reply_markup=markup)
 		bot.register_next_step_handler(msg, buy_btc)
-	elif message.text == 'Exmo руб. \U0001F4B0':
+	elif message.text == '\U0001F511 Купить Exmo':
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
 		markup.row('\U0001F519 Назад')
-		msg = bot.send_message(message.chat.id, "Введите сумму Exmo руб.", reply_markup=markup)
+		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F511EXMO-code RUB n\n\Напишите сумму: от 500 до 60000 руб.", reply_markup=markup)
 		bot.register_next_step_handler(msg, buy_exmo)
 	else:
 		second_menu(message)
