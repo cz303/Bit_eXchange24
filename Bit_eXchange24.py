@@ -47,9 +47,9 @@ def welcome_message(message):
 	print("Курс Bitcoin: ", round(btc_price), " рублей")
 	markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 	markup.one_time_keyboard =False
-	markup.row('Обменять \U0001F4B8', 'Инструкция')
-	markup.row('Реф.программа \U0001F5E3', 'Контакты \U0000260E')
-	markup.row('Активировать промокод')
+	markup.row('\U0000267B Обменять', '\U000026A0 К прочтению')
+	markup.row('\U0001F46B Реф.программа', '\U0001F4F2 Контакты')
+	markup.row('\U0001F516 Активировать промокод')
 	msg = bot.send_message(message.chat.id, "Добро пожаловать в наш обменник!",reply_markup=markup)
 	bot.register_next_step_handler(msg, next)
 	
@@ -62,31 +62,31 @@ def second_menu(message):
 	print(btc_price)
 	markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 	markup.one_time_keyboard =False
-	markup.row('Обменять \U0001F4B8', 'Инструкция')
-	markup.row('Реф.программа \U0001F5E3', 'Контакты \U0000260E')
-	markup.row('Активировать промокод')
+	markup.row('\U0000267B Обменять', '\U000026A0 К прочтению')
+	markup.row('\U0001F46B Реф.программа', '\U0001F4F2 Контакты')
+	markup.row('\U0001F516 Активировать промокод')
 	msg = bot.send_message(message.chat.id, "Продолжить работу",reply_markup=markup)
 	bot.register_next_step_handler(msg, next)
 
 	
 def next(message):
-	if message.text == 'Обменять \U0001F4B8':
+	if message.text == '\U0000267B Обменять':
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
 		markup.row('Exmo руб. \U0001F4B0', 'Bitcoin BTC \U0001F4B0')
 		markup.row('\U0001F519 Назад')
 		msg = bot.send_message(message.chat.id, " \U0001F4F2 Выберите, что хотите купить:", reply_markup=markup)
 		bot.register_next_step_handler(msg, buy)
-	elif message.text == 'Инструкция':
+	elif message.text == '\U000026A0 К прочтению':
 		bot.send_message(message.chat.id, "\U0001F4A1Важная информация: \n\n\U000025AA Наш бот - @Bit_eX24bot \n\U000025AA При сбое бота - напишите команду - /start \n\U000025AA Транзакция BitCoin отправляется нами максимально возможным приоритетом (1 блок), остальное зависит от самой BTC сети. Ею мы не управляем и никто не управляет \n\U000025AA Не принимаются жалобы на недействующие коды EXMO, если они были переданы третьим лицам или активированы не на сайтах платежных систем соответственно \n\U000025AA Если Вы отправили вместо QIWI на мобильный телефон деньги, то никто вам их не вернет, т.к. мы тоже их не получим. Так же не рассматриваются платежи без комментария \n\U000025AA Всю важную информацию и отзывы мы публикуем в нашем новостном канале - @Bit_eX24 \n\U000025AA On-line поддержка - @Bit_eX24sup, время работы оператора поддержки с 8 утра до 22 вечера \n\U000025AA Бесплатный  прокси при блокировке Telegram https://t.me/proxy?server=142.93.100.244&port=443&secret=086300a794a285f1ceb60fdaecb81cac")
 		second_menu(message)
-	elif message.text == 'Реф.программа \U0001F5E3':
+	elif message.text == '\U0001F46B Реф.программа':
 		bot.send_message(message.chat.id,"Этот раздел в разработке. Скоро будет.")
 		second_menu(message)
-	elif message.text == 'Контакты \U0000260E':
+	elif message.text == '\U0001F4F2 Контакты':
 		bot.send_message(message.chat.id,"Контакты \n @Bit_ex24sup - наша служба поддержки \n t.me/Bit_eX24 - наш новостной канал")
 		second_menu(message)
-	elif message.text == 'Активировать промокод':
+	elif message.text == '\U0001F516 Активировать промокод':
 		msg = bot.send_message(message.chat.id, "Введите промокод:")
 		bot.register_next_step_handler(msg, promo)
 	
