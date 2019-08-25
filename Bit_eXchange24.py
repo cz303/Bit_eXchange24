@@ -180,12 +180,12 @@ def exmo_pay(message):
 	if message.text == "Отмена":
 		second_menu(message)
 	else:
-		bot.send_message(message.chat.id, " \U00002757ВНИМАНИЕ\U00002757 После успешного перевода денег по указанным реквизитам нажмите на кнопку "Я оплатил" 1")
+		bot.send_message(message.chat.id, " \U00002757ВНИМАНИЕ\U00002757 После успешного перевода денег по указанным реквизитам нажмите на кнопку "Я оплатил", чтобы получить EXMO-код")
 		markup = types.InlineKeyboardMarkup()
 		i_pay = types.InlineKeyboardButton('Я оплатил!', callback_data='i_pay_btn')
 		cancel = types.InlineKeyboardButton('Отменить', callback_data='cancel_btn')
 		markup.add(i_pay, cancel)
-		bot.send_message(message.chat.id, "\U00002705 Ваша заявка №"+str(order_number)+" успешно создана.\n\n\U0001F4B3 Переводите на киви кошелёк: \n"+str(qiwi)+" \n\n\U0001F4B0 Сумма к оплате: "+str(round(total_price))+" руб."+" \n\n\U000026A0 ВАЖНО! Необходимо перевести точную сумму "+str(round(total_price))+" руб."+", \n\n\U0000270F Комментарий: "+str(order_number)+"\n"+" \n\n\U000026A0 ВАЖНО! Платежи без комментария считаются недействительными! \n\n\U000023F3 Реквизиты действительны: 30 минут.", reply_markup=markup)
+		bot.send_message(message.chat.id, "\U00002705 Ваша заявка №"+str(order_number)+" успешно создана.\n\n\U0001F4B3 Переводите на киви кошелёк: \n"+str(qiwi)+" \n\n\U0001F4B0 Сумма к оплате: "+str(round(total_price))+" руб. \n\n\U000026A0 ВАЖНО! Необходимо перевести точную сумму "+str(round(total_price))+" руб., \n\n\U0000270F Комментарий: "+str(order_number)+" \n\n\U000026A0 ВАЖНО! Платежи без комментария считаются недействительными! \n\n\U000023F3 Реквизиты действительны: 30 минут.", reply_markup=markup)
 		second_menu(message)
 		return
 		schedule.run_pending()
@@ -196,12 +196,12 @@ def exmo_pay(message):
 def bitcoin_kosh(message):
 	if message.text == message.text:
 		if re.match('[13][a-km-zA-HJ-NP-Z1-9]{25,34}$', message.text):
-			bot.send_message(message.chat.id, " \U00002757ВНИМАНИЕ\U00002757 После успешного перевода денег по указанным реквизитам нажмите на кнопку "Я оплатил", чтобы получить BTC на ваш адрес ")
+			bot.send_message(message.chat.id, " \U00002757ВНИМАНИЕ\U00002757 После успешного перевода денег по указанным реквизитам нажмите на кнопку "Я оплатил", чтобы получить BTC на ваш адрес")
 			markup = types.InlineKeyboardMarkup()
 			i_pay = types.InlineKeyboardButton('Я оплатил!', callback_data='i_pay_btn')
 			cancel = types.InlineKeyboardButton('Отменить', callback_data='cancel_btn')
 			markup.add(i_pay, cancel)
-			bot.send_message(message.chat.id, "\U00002705 Ваша заявка №"+str(order_number)+" успешно создана.\n\n\U0001F4B3 Переводите на киви кошелёк: \n"+str(qiwi)+" \n\n\U0001F4B0 Сумма к оплате: "+str(round(total_price))+" руб."+" \n\n\U000026A0 ВАЖНО! Необходимо перевести точную сумму "+str(round(total_price))+" руб."+", \n\n\U0000270F Комментарий: "+str(order_number)+"\n"+" \n\n\U000026A0 ВАЖНО! Платежи без комментария считаются недействительными! \n\n\U000023F3 Реквизиты действительны: 30 минут.", reply_markup=markup)
+			bot.send_message(message.chat.id, "\U00002705 Ваша заявка №"+str(order_number)+" успешно создана.\n\n\U0001F4B3 Переводите на киви кошелёк: \n"+str(qiwi)+" \n\n\U0001F4B0 Сумма к оплате: "+str(round(total_price))+" руб. \n\n\U000026A0 ВАЖНО! Необходимо перевести точную сумму "+str(round(total_price))+" руб., \n\n\U0000270F Комментарий: "+str(order_number)+" \n\n\U000026A0 ВАЖНО! Платежи без комментария считаются недействительными! \n\n\U000023F3 Реквизиты действительны: 30 минут.", reply_markup=markup)
 			schedule.run_pending()
 			time.sleep(5)
 			second_menu(message)
