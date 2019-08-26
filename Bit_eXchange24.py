@@ -50,8 +50,7 @@ def welcome_message(message):
 	markup.row('\U0000267B Обменять', '\U000026A0 К прочтению')
 	markup.row('\U0001F46B Реф.программа', '\U0001F4F2 Контакты')
 	markup.row('\U0001F516 Активировать промокод')
-	msg = bot.send_message(message.chat.id, "Добро <b> пожаловать </b> в обменник Bit-eX24!",reply_markup=markup)
-	parse_mode=telegram.ParseMode.HTML)
+	msg = bot.send_message(message.chat.id, "Добро пожаловать в обменник Bit-eX24!",reply_markup=markup)
 	bot.register_next_step_handler(msg, next)
 	
 def second_menu(message):
