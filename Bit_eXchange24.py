@@ -84,7 +84,7 @@ def next(message):
 		bot.send_message(message.chat.id,"Этот раздел в разработке. Скоро будет.")
 		second_menu(message)
 	elif message.text == '\U0001F4F2 Контакты':
-		bot.send_message(message.chat.id,"\U0001F4F2 Контакты: \n\n\U00002709 On-line поддержка - @Bit_ex24sup \n\U0001F441 Новостной канал - t.me/Bit_eX24 \n\n\n\n")
+		bot.send_message(message.chat.id,"\U0001F4F2 Контакты: \n\n\U00002709 On-line поддержка - @Bit_ex24sup \n\U0001F52E Новостной канал - t.me/Bit_eX24 \n\n\n\n")
 		second_menu(message)
 	elif message.text == '\U0001F516 Активировать промокод':
 		msg = bot.send_message(message.chat.id, "Введите промокод:")
