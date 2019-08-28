@@ -100,13 +100,13 @@ def buy(message):
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
 		markup.row('\U0001F519 Назад')
-		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F310 BitCoin BTC \n\nНапишите сумму: от 0.0005 до 0.5 BTC", reply_markup=markup)
+		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F310 <b>BitCoin BTC</b> \n\nНапишите сумму: от 0.0005 до 0.5 BTC", reply_markup=markup, parse_mode= "HTML")
 		bot.register_next_step_handler(msg, buy_btc)
 	elif message.text == '\U0001F511 Купить Exmo':
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
 		markup.row('\U0001F519 Назад')
-		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F511 EXMO-code RUB \n\nНапишите сумму: от 500 до 60000 руб.", reply_markup=markup)
+		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F511 <b>EXMO-code RUB</b> \n\nНапишите сумму: от 500 до 60000 руб.", reply_markup=markup, parse_mode= "HTML")
 		bot.register_next_step_handler(msg, buy_exmo)
 	else:
 		second_menu(message)
@@ -137,7 +137,7 @@ def buy_btc(message):
 		global total_price
 		total_price = float((btc_price * summ)+((btc_price *summ)/8))
 		print(total_price)
-		msg = bot.send_message(message.chat.id, "\U000026A0 Для получения BitCoin в размере "+str(summ)+" BTC:\n\nВам необходимо оплатить на QiWi кошелек "+str(round(total_price))+" руб."+"\n\nВы согласны провести обмен?", reply_markup=markup)
+		msg = bot.send_message(message.chat.id, "\U000026A0 Для получения <b>BitCoin</b> в размере <b>"+str(summ)+" BTC:</b>\n\nВам необходимо оплатить на QiWi кошелек <b>"+str(round(total_price))+" руб.</b>"+"\n\nВы согласны провести обмен?", reply_markup=markup, parse_mode= "HTML")
 		bot.register_next_step_handler(msg, ok_button)
 	
 def buy_exmo(message):
@@ -162,7 +162,7 @@ def buy_exmo(message):
 		markup.row('\U0000267B Согласен','Отмена')
 		global total_price
 		total_price = float((summ + (summ/8)))
-		msg = bot.send_message(message.chat.id, "\U000026A0 Для получения EXMO в размере "+str(summ)+" руб.\n\nВам необходимо оплатить на QiWi кошелек "+str(round(total_price))+ " руб.\n\nВы согласны провести обмен?", reply_markup=markup)
+		msg = bot.send_message(message.chat.id, "\U000026A0 Для получения <b>EXMO</b> в размере "+str(summ)+" руб.\n\nВам необходимо оплатить на QiWi кошелек <b>"+str(round(total_price))+ " руб.</b>\n\nВы согласны провести обмен?", reply_markup=markup, parse_mode= "HTML")
 		bot.register_next_step_handler(msg, exmo_pay)
 	
 	
