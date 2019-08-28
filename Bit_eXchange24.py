@@ -75,10 +75,10 @@ def next(message):
 		markup.one_time_keyboard =False
 		markup.row('\U0001F310 Купить BTC', '\U0001F511 Купить Exmo')
 		markup.row('\U0001F519 Назад')
-		msg = bot.send_message(message.chat.id, " \U00002754 <b>Выберите</b>, что хотите купить:", reply_markup=markup, parse_mode= "HTML")
+		msg = bot.send_message(message.chat.id, " \U00002754 Выберите, что хотите купить:", reply_markup=markup, parse_mode= "HTML")
 		bot.register_next_step_handler(msg, buy)
 	elif message.text == '\U000026A0 К прочтению':
-		bot.send_message(message.chat.id, "\U0001F4A1Важная информация: \n\n\U000025AA Наш бот - @Bit_eX24bot \n\U000025AA При сбое бота - напишите команду - /start \n\U000025AA Транзакция BitCoin отправляется нами максимально возможным приоритетом (1 блок), остальное зависит от самой BTC сети. Ею мы не управляем и никто не управляет \n\U000025AA Не принимаются жалобы на недействующие коды EXMO, если они были переданы третьим лицам или активированы не на сайтах платежных систем соответственно \n\U000025AA Если Вы отправили вместо QIWI на мобильный телефон деньги, то никто вам их не вернет, т.к. мы тоже их не получим. Так же не рассматриваются платежи без комментария \n\U000025AA Всю важную информацию и отзывы мы публикуем в нашем новостном канале - @Bit_eX24 \n\U000025AA On-line поддержка - @Bit_eX24sup, время работы оператора поддержки с 8 утра до 22 вечера \n\U000025AA Бесплатный  прокси при блокировке Telegram https://t.me/proxy?server=142.93.100.244&port=443&secret=086300a794a285f1ceb60fdaecb81cac")
+		bot.send_message(message.chat.id, "\U0001F4A1<b>Важная информация:</b> \n\n\U000025AA Наш бот - @Bit_eX24bot \n\U000025AA При сбое бота - напишите команду - /start \n\U000025AA Транзакция BitCoin отправляется нами максимально возможным приоритетом (1 блок), остальное зависит от самой BTC сети. Ею мы не управляем и никто не управляет \n\U000025AA Не принимаются жалобы на недействующие коды EXMO, если они были переданы третьим лицам или активированы не на сайтах платежных систем соответственно \n\U000025AA Если Вы отправили вместо QIWI на мобильный телефон деньги, то никто вам их не вернет, т.к. мы тоже их не получим. Так же не рассматриваются платежи без комментария \n\U000025AA Всю важную информацию и отзывы мы публикуем в нашем новостном канале - @Bit_eX24 \n\U000025AA On-line поддержка - @Bit_eX24sup, время работы оператора поддержки с 8 утра до 22 вечера \n\U000025AA Бесплатный  прокси при блокировке Telegram https://t.me/proxy?server=142.93.100.244&port=443&secret=086300a794a285f1ceb60fdaecb81cac", parse_mode= "HTML")
 		second_menu(message)
 	elif message.text == '\U0001F91D Реф.программа':
 		bot.send_message(message.chat.id,"Этот раздел в разработке. <b>Скоро будет.</b>", parse_mode= "HTML")
@@ -162,7 +162,7 @@ def buy_exmo(message):
 		markup.row('Согласен','Отмена')
 		global total_price
 		total_price = float((summ + (summ/8)))
-		msg = bot.send_message(message.chat.id, "\U000026A0 Для получения <b>EXMO</b> в размере "+str(summ)+" руб.\n\nВам необходимо оплатить на QiWi кошелек <b>"+str(round(total_price))+ " руб.</b>\n\nВы согласны провести обмен?", reply_markup=markup, parse_mode= "HTML")
+		msg = bot.send_message(message.chat.id, "\U000026A0 Для получения <b>EXMO</b> в размере <b>"+str(summ)+" руб.</b>\n\nВам необходимо оплатить на QiWi кошелек <b>"+str(round(total_price))+ " руб.</b>\n\nВы согласны провести обмен?", reply_markup=markup, parse_mode= "HTML")
 		bot.register_next_step_handler(msg, exmo_pay)
 	
 	
