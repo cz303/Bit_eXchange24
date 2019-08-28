@@ -199,7 +199,7 @@ def bitcoin_kosh(message):
 			i_pay = types.InlineKeyboardButton('Я оплатил!', callback_data='i_pay_btn')
 			cancel = types.InlineKeyboardButton('Отменить заявку', callback_data='cancel_btn')
 			markup.add(i_pay, cancel)
-			bot.send_message(message.chat.id, "\U00002705 Ваша заявка <b>№"+str(order_number)+"</b> успешно создана. \n\n\U0001F4B3 Переводите на киви кошелёк: \n"+str(qiwi)+" \n\n\U0001F4B0 Сумма к оплате: <b>"+str(round(total_price))+" руб.</b> \n\n\U0000270F Комментарий: <b>"+str(order_number)+"</b> \n\U000026A0 <b>ВАЖНО!</b> Платежи без комментария считаются недействительными! \n\n\U000023F3 <b>Реквизиты действительны:</b> 30 минут. \n\n\U00002757<b>ВНИМАНИЕ</b>\U00002757 После успешного перевода денег по указанным реквизитам нажмите на кнопку <b>'Я оплатил'</b>, чтобы получить <b>BTC</b> на ваш адрес", reply_markup=markup, parse_mode= "HTML")
+			bot.send_message(message.chat.id, "\U00002705 Ваша заявка <b>№"+str(order_number)+"</b> успешно создана. \n\n\U0001F4B3 Переводите на киви кошелёк: \n"+str(qiwi)+" \n\n\U0001F4B0 Сумма к оплате: <b>"+str(round(total_price))+" руб.</b> \n\n\U0000270F Комментарий: <b>"+str(order_number)+"</b> \n\U000026A0 <b>ВАЖНО!</b> Платежи без комментария считаются недействительными! \n\n\U000023F3 <b>Реквизиты действительны:</b> 30 минут. \n\n\U00002757 <b>ВНИМАНИЕ</b> \U00002757 После успешного перевода денег по указанным реквизитам нажмите на кнопку <b>Я оплатил</b>, чтобы получить <b>BTC</b> на ваш адрес", reply_markup=markup, parse_mode= "HTML")
 			schedule.run_pending()
 			time.sleep(5)
 			second_menu(message)
