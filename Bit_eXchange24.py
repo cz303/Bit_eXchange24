@@ -50,7 +50,7 @@ def welcome_message(message):
 	markup.row('\U0000267B Обменять', '\U000026A0 К прочтению')
 	markup.row('\U0001F46B Реф.программа', '\U0001F4F2 Контакты')
 	markup.row('\U0001F516 Активировать промокод')
-	msg = bot.send_message(message.chat.id, "Добро пожаловать в обменник Bit-eX24!",reply_markup=markup)
+	msg = bot.send_message(message.chat.id, "Добро пожаловать в обменник <b>Bit-eX24!</b>",reply_markup=markup, parse_mode= "HTML")
 	bot.register_next_step_handler(msg, next)
 	
 def second_menu(message):
@@ -84,7 +84,7 @@ def next(message):
 		bot.send_message(message.chat.id,"Этот раздел в разработке. Скоро будет.")
 		second_menu(message)
 	elif message.text == '\U0001F4F2 Контакты':
-		bot.send_message(message.chat.id,"\U0001F4F2 Контакты: \n\n\U00002709 On-line поддержка - @Bit_ex24sup \n\U0001F52E <b>Новостной</b> канал - t.me/Bit_eX24")
+		bot.send_message(message.chat.id,"\U0001F4F2 Контакты: \n\n\U00002709 On-line поддержка - @Bit_ex24sup \n\U0001F52E Новостной канал - t.me/Bit_eX24")
 		second_menu(message)
 	elif message.text == '\U0001F516 Активировать промокод':
 		msg = bot.send_message(message.chat.id, "Введите промокод:")
