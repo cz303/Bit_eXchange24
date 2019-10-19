@@ -100,7 +100,7 @@ def buy(message):
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
 		markup.one_time_keyboard =False
 		markup.row('\U0001F519 Назад')
-		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F310 <b>BitCoin BTC</b> \n\nНапишите сумму: <b>от 0.0005 до 0.5 BTC</b>", reply_markup=markup, parse_mode= "HTML")
+		msg = bot.send_message(message.chat.id, "Сколько вы хотите купить \U0001F310 <b>Bitcoin BTC</b> \n\nНапишите сумму: <b>от 0.0005 до 0.5 BTC</b>", reply_markup=markup, parse_mode= "HTML")
 		bot.register_next_step_handler(msg, buy_btc)
 	elif message.text == '\U0001F511 Купить Exmo':
 		markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
